@@ -438,7 +438,7 @@ export function createCore(name: string, args: ClusterOptions, parent: pulumi.Co
             description: "Allows EKS to manage clusters on your behalf.",
             managedPolicyArns: [
                 {
-                    id: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy",
+                    id: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEKSClusterPolicy`,
                     arn: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEKSClusterPolicy`,
                 },
             ],
@@ -641,15 +641,15 @@ export function createCore(name: string, args: ClusterOptions, parent: pulumi.Co
             service: "ec2.amazonaws.com",
             managedPolicyArns: [
                 {
-                    id: "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
+                    id: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEKSWorkerNodePolicy`,
                     arn: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEKSWorkerNodePolicy`,
                 },
                 {
-                    id: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy",
+                    id: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEKS_CNI_Policy`,
                     arn: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEKS_CNI_Policy`,
                 },
                 {
-                    id: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
+                    id: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly`,
                     arn: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly`,
                 },
             ],
@@ -724,7 +724,7 @@ export function createCore(name: string, args: ClusterOptions, parent: pulumi.Co
                 service: "eks-fargate-pods.amazonaws.com",
                 managedPolicyArns: [
                     {
-                        id: "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
+                        id: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy`,
                         arn: pulumi.interpolate`arn:${partition}:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy`,
                     },
                 ],
